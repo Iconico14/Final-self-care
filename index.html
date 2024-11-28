@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial="1.0">
     <title>Self Care Check Journal</title>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
     <style>
@@ -107,6 +107,22 @@
             font-size: 20px;
             margin-right: 10px;
         }
+
+        .links-container {
+            margin-top: 20px;
+        }
+
+        .links-container a {
+            display: block;
+            color: #4a3b61;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .links-container a:hover {
+            color: #9b78b1;
+        }
     </style>
 </head>
 <body>
@@ -143,6 +159,13 @@
                 <button onclick="showPage('study-planner')">📝 Study Planner</button>
                 <button onclick="showPage('diet')">🥗 Diet</button>
             </div>
+            <div class="links-container">
+                <h3>Useful Links 🔗</h3>
+                <a href="#" target="_blank">Link 1</a>
+                <a href="#" target="_blank">Link 2</a>
+                <a href="#" target="_blank">Link 3</a>
+                <!-- Add more links as needed -->
+            </div>
         </div>
 
         <!-- Skincare Page -->
@@ -160,7 +183,10 @@
                 <li><input type="checkbox"> 🛁 Face Mask</li>
                 <li><input type="checkbox"> 💦 Hydrate</li>
             </ul>
-            <button onclick="saveProgress('skincare')">Save 🛡️</button>
+            <div class="nav-buttons">
+                <button onclick="saveProgress('skincare')">Save 🛡️</button>
+                <button onclick="showPage('dashboard')">Back ⬅️</button>
+            </div>
         </div>
 
         <!-- Personal Page -->
@@ -178,7 +204,10 @@
                 <li><input type="checkbox"> 👫 Connect with Friends</li>
                 <li><input type="checkbox"> 🌙 Relaxation</li>
             </ul>
-            <button onclick="saveProgress('personal')">Save 🛡️</button>
+            <div class="nav-buttons">
+                <button onclick="saveProgress('personal')">Save 🛡️</button>
+                <button onclick="showPage('dashboard')">Back ⬅️</button>
+            </div>
         </div>
 
         <!-- Gratitude Page -->
@@ -196,25 +225,27 @@
                 <li><input type="checkbox"> ✨ Visualize Good Things</li>
                 <li><input type="checkbox"> 🎉 Celebrate Small Wins</li>
             </ul>
-            <button onclick="saveProgress('gratitude')">Save 🛡️</button>
+            <div class="nav-buttons">
+                <button onclick="saveProgress('gratitude')">Save 🛡️</button>
+                <button onclick="showPage('dashboard')">Back ⬅️</button>
+            </div>
         </div>
 
         <!-- School Page -->
         <div id="school" class="page">
             <h3>📚 School Checklist</h3>
             <ul class="checklist">
-                <li><input type="checkbox"> 📝 Complete Homework</li>
-                <li><input type="checkbox"> 📚 Review Notes</li>
-                <li><input type="checkbox"> 📖 Study for Exam</li>
-                <li><input type="checkbox"> 📅 Complete Assignments</li>
-                <li><input type="checkbox"> 📘 Read Textbook</li>
-                <li><input type="checkbox"> 🙋 Participate in Class</li>
-                <li><input type="checkbox"> 🤝 Join Study Group</li>
-                <li><input type="checkbox"> 🎤 Prepare for Presentations</li>
-                <li><input type="checkbox"> 🔬 Practice Problems</li>
+                <li><input type="checkbox"> 📖 Study</li>
+                <li><input type="checkbox"> ✏️ Homework</li>
+                <li><input type="checkbox"> 🏫 Prepare for Classes</li>
+                <li><input type="checkbox"> 📚 Study for Specific Subjects</li>
+                <li><input type="checkbox"> 📝 Make Notes</li>
                 <li><input type="checkbox"> 💡 Seek Help if Needed</li>
             </ul>
-            <button onclick="saveProgress('school')">Save 🛡️</button>
+            <div class="nav-buttons">
+                <button onclick="saveProgress('school')">Save 🛡️</button>
+                <button onclick="showPage('dashboard')">Back ⬅️</button>
+            </div>
         </div>
 
         <!-- Book List Page -->
@@ -232,7 +263,10 @@
                 <li><input type="checkbox"> 📚 The Alchemist</li>
                 <li><input type="checkbox"> 📚 Becoming</li>
             </ul>
-            <button onclick="saveProgress('book-list')">Save 🛡️</button>
+            <div class="nav-buttons">
+                <button onclick="saveProgress('book-list')">Save 🛡️</button>
+                <button onclick="showPage('dashboard')">Back ⬅️</button>
+            </div>
         </div>
 
         <!-- Study Planner Page -->
@@ -250,7 +284,10 @@
                 <li><input type="checkbox"> 🗓️ Schedule Study Time</li>
                 <li><input type="checkbox"> 📊 Evaluate Progress</li>
             </ul>
-            <button onclick="saveProgress('study-planner')">Save 🛡️</button>
+            <div class="nav-buttons">
+                <button onclick="saveProgress('study-planner')">Save 🛡️</button>
+                <button onclick="showPage('dashboard')">Back ⬅️</button>
+            </div>
         </div>
 
         <!-- Diet Page -->
@@ -268,12 +305,14 @@
                 <li><input type="checkbox"> 🍞 Choose Whole Grains</li>
                 <li><input type="checkbox"> 🔢 Monitor Calorie Intake</li>
             </ul>
-            <button onclick="saveProgress('diet')">Save 🛡️</button>
+            <div class="nav-buttons">
+                <button onclick="saveProgress('diet')">Save 🛡️</button>
+                <button onclick="showPage('dashboard')">Back ⬅️</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // JavaScript Functions
         function startJourney() {
             const name = document.getElementById('username').value;
             if (name) {
@@ -305,6 +344,7 @@
 
         function saveProgress(pageId) {
             alert('Progress saved for ' + pageId + ' page! 🛡️');
+            showPage('dashboard');
         }
     </script>
 </body>
